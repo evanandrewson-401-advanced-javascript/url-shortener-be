@@ -20,7 +20,6 @@ describe('app routes', () => {
     return request(app)
       .post('/api/v1/auth/signup')
       .send({ username: 'test', password: 'test' })
-      .expect(200)
       .then(res => {
         expect(res.body).toEqual({
           _id: expect.any(String),
