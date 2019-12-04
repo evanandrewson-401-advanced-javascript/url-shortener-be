@@ -1,6 +1,7 @@
 language: node_js
 services:
   - mongodb
+env: MONGODB_URI=mongodb://localhost:27017/urlshortener
 node_js:
   - "stable"
 
