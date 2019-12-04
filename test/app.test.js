@@ -28,31 +28,4 @@ describe('app routes', () => {
         });
       });
   });
-  it('can log in a user', async() => {
-    await request(app)
-      .post('/api/v1/auth/signup')
-      .send({ username: 'test', password: 'test' });
-    const res = await request(app)
-      .post('/api/v1/auth/login')
-      .send({ username: 'test', password: 'test' })
-      .expect(200);
-      
-    expect(res.body).toEqual({
-      _id: expect.any(String),
-      username: 'test'
-    });
-  });
-  it('can verify a user', async() => {
-    await request(app)
-      .post('/api/v1/auth/signup')
-      .send({ username: 'test', password: 'test' });
-    const res = await request(app)
-      .get('/api/v1/auth/verify')
-      .expect(200);
-
-    expect(res).toEqual({
-      _id: expect.any(String),
-      username: 'test'
-    });  
-  });
 });
